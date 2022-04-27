@@ -1,0 +1,121 @@
+html {
+    font-family: 'Rufina', sans-serif;
+}
+
+body {
+    background-color: #efefef;
+    margin: 0;
+    color: #000;
+}
+
+a {
+    transition: color 0.3s ease;
+    font-family: 'Rubik', sans-serif;
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+a:hover {
+    color: #808080;
+}
+
+html body header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    box-shadow: 3px 0 5px #aaa;
+    padding: 15px 30px;
+    position: relative;
+    z-index: 2;
+}
+
+header .logo {
+    font-size: 30px;
+    font-family: 'Rubik', sans-serif;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    background-color: #fff;
+    color: #000;
+}
+
+html body nav ul {
+    list-style-type: none;
+    font-size: 16px;
+}
+
+html body nav ul li {
+    display: inline-block;
+}
+
+html body nav ul li a {
+    padding: 0 15px;
+    
+}
+
+.hero {
+    position: center;
+    z-index: 1;
+    display: flex;
+    background-color: #fff;
+    padding: 20px 50px;
+    justify-content: center;
+    height: 100vh;
+}
+
+.hero .hero-content {
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.hero h1 {
+    font-family: 'Rufina', sans-serif;
+    font-size: 50px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.hero p {
+    font-family: 'Rubik', sans-serif;
+    margin-bottom: 50px;
+    
+}
+
+.left {
+    width: 600px;
+    align-self: center;
+}
+
+.btn-bar {
+   
+   border: none;
+   background-color: #c4c4c4;
+   padding: 15px 30px;
+   border-radius: 40px;
+   cursor: pointer;
+
+
+}
+
+P {
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    text-align:  center;
+    margin-top:20;
+}
+
+.con{
+    text-align: center;
+}
+
+.con h1{
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}

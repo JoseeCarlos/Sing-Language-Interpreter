@@ -1,15 +1,11 @@
-import imp
-import os 
-from flask import Flask
-
+from flask import Flask 
+import os
 
 def create_app():
     app = Flask(__name__)
     app.config.from_mapping(
-        SECRET_KEY='SENGRID_KEY',
-        
+        SENDGRID_KEY=os.environ.get('SENDGRID_KEY'),
     )
-
     from . import sli_page
 
     app.register_blueprint(sli_page.bp)

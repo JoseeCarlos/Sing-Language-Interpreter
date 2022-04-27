@@ -6,4 +6,4 @@ bp = Blueprint('sli_page', __name__, url_prefix='/')
 
 @bp.route('/', methods=['GET'])
 def index():
-    return render_template('sli_page.html')
+    return render_template('homepage/index.html')
