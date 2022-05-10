@@ -7,18 +7,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap" rel="stylesheet">
-
+<script src="https://kit.fontawesome.com/7188a684b2.js" crossorigin="anonymous"></script>
 <body>
     <header>
         <div class="logo">SLI</div>
         <nav>
             <ul>
                 <li><a href="{{ url_for('sli_page.index') }}">Inicio</a></li>
-                <li><a href="#Caracteristicas">Caracteristicas</a></li>
-                <li><a href="#Novedades">Novedades</a></li>
-                <li><a href="#Idiomas">Idiomas</a></li>
-                <li><a href="#Prueba"><button class="btn-bar">Prueba Ya</button></a></li>
-
+                <li><a href="{{ url_for('sli_page.features') }}">Caracteristicas</a></li>
+                <li><a href="{{ url_for('sli_page.news') }}">Novedades</a></li>
+                <li><a href="{{ url_for('sli_page.news') }}">Idiomas</a></li>
+                <li><a href="{{ url_for('sli_page.test') }}"><button class="btn-bar">Prueba Ya</button></a></li>
             </ul>
         </nav>
     </header>
