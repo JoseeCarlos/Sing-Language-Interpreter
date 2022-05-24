@@ -1,6 +1,8 @@
 import tkinter as tk
 import tkinter.ttk as ttk
 import cv2
+import imutils
+from PIL import Image, ImageTk
 from tkinter import messagebox
 class Aplication:
     def __init__(self):
@@ -15,7 +17,6 @@ class Aplication:
         self.useInstructionsLabel=ttk.Label(self.main,text="Instrucciones en Aplicación:\n   1. Entrar aconfiguraciones de\n       entrada y salida.\n   2.Selecciona como web cam:\n      SLI Virtual Camera.\n   3. Selecciona como microfono:\n      SLI Virtual Mic.\n   4. Selecciona como Altavoz:\n      SLI Virtual Speaker")
         self.useInstructionsLabel.place(x=10,y=170,width=180)
         #CameraList
-        capture=cv2.VideoCapture(0,cv2.CAP_DSHOW)
         def returnCameraIndexes():
             index = 0
             arr = []
@@ -30,25 +31,62 @@ class Aplication:
             return arr
         #cambio de seleccion combo camara
         def selection_changed(event):
-            selection = self.cameraCombo.current()
-            #capture=cv2.VideoCapture(selection,cv2.CAP_DSHOW)
+            None
+
+        #VideoStream
+        video =None
+        def videoStream():
+            global video
+            video=cv2.VideoCapture(self.cameraCombo.current())
+            iniciar()
+        def iniciar():
+            global video
+            ret,frame=video.read()
+            if ret==True:
+                frame=imutils.resize(frame,width=520,height=330)
+                frame=cv2.cvtColor(frame,cv2.COLOR_BGR2RGB)
+                img=Image.fromarray(frame)
+                image=ImageTk.PhotoImage(image=img)
+                self.cameraInputImgLabel.configure(image=image)
+                self.cameraInputImgLabel.image=image
+                self.cameraInputImgLabel.after(10,iniciar)
+
+        def videoStop():
+            global video
+            self.cameraInputImgLabel.configure(bg="black",image=None)
+            self.cameraInputImgLabel.image=None
+            video.release()
+        #stratButton clickEvent
+        global buttonStartFlag
+        buttonStartFlag =False
+        def buttonClicked(event):
+            global buttonStartFlag
+            if buttonStartFlag==False:
+                videoStream()
+                self.startButton.config(text="Detener")
+                buttonStartFlag=True
+            else:
+                videoStop()
+                self.startButton.config(text="Iniciar")
+                buttonStartFlag=False
+
         #Componentes de frameCameraConfig
-        self.cameraInputImg=tk.PhotoImage(file="CamView.gif")
-        self.cameraInputImgLabel=tk.Label(self.main,image=self.cameraInputImg)
+        self.cameraInputImgLabel=tk.Label(self.main,bg="black")
         self.cameraInputImgLabel.place(x=190,y=10,width=520,height=330)
+
         self.cameraLabel=ttk.Label(self.main,text="Selecciona Webcam")
         self.cameraLabel.place(x=400,y=340)
         self.cameraCombo=ttk.Combobox(self.main,state="readonly",values=returnCameraIndexes())
         self.cameraCombo.current(0)
         self.cameraCombo.bind("<<ComboboxSelected>>", selection_changed)
         self.cameraCombo.place(x=190,y=360,width=520)
-
         self.languageLabel=ttk.Label(self.main,text="Selecciona Idioma")
         self.languageLabel.place(x=400,y=385)
         self.languageCombo=ttk.Combobox(self.main,state="readonly",values=["Español","English"])
         self.languageCombo.current(0)
         self.languageCombo.place(x=190,y=405,width=520)
         self.startButton=ttk.Button(self.main,text="Iniciar")
+        self.startButton.bind("<Button-1>",buttonClicked)
         self.startButton.place(x=375,y=435,width=150)
         #Componentes de frameInterpretationView
         self.realTimeTextLabel=ttk.Label(self.main,text="Texto en tiempo real:\n   ......ipsum dolor sit amet \nconsectetur adipiscing elit, sed \n do eiusmod tempor incididunt \nut labore et dolore magna aliqua.\nFames ac turpis egestas sed.....")
@@ -61,6 +99,5 @@ class Aplication:
         #Versions
         self.versionLabel=ttk.Label(self.main,text="v1.0")
         self.versionLabel.pack(side="bottom")
-
         self.main.mainloop()
 app=Aplication()
