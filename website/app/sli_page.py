@@ -19,3 +19,7 @@ def news():
 @bp.route('/test', methods=['GET'])
 def test():
     return render_template('test/index.html')
+    
+@bp.route('/suport', methods=['GET'])
+def suport():
+    return render_template('suport/index.html')

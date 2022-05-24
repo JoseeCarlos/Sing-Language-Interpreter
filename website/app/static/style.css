@@ -142,4 +142,237 @@ footer {
    padding-right: 5px;
 }
 
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.sticky + .hero {
+    padding-top: 60px;
+}
+
+/* features */
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 280px;
+    background-color: #f3f4f6;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    white-space: nowrap;
+    tesxt-align: center;
+    overflow-y: scroll;
+  }
+  
+  .sidebar a {
+    display: block;
+    color: black;
+    padding: 14px;
+    text-decoration: none;
+  }
+  .sidebar label {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+    text-align: center;
+  }
+   
+  .sidebar a.active {
+    color: #0856f3;
+  }
+  
+  div.content-side {
+    margin-left: 280px;
+    padding: 1px 16px;
+    height: 1000px;
+    background-color: white;
+  }
+
+  div.content-side p {
+    padding: 16px;
+    font-size: 18px;
+    text-align: justify;
+    width: 500px;
+    text-align: center;
+  }
+
+  div.content-side h1 {
+    padding: 16px;
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .customsel {
+    margin:20px auto 40px auto;	
+   border:1px solid #d9d9d9;
+   height:30px;
+   overflow: hidden;
+   width: 230px;
+   position:relative;
+   display:block;
+  }
+  
+  .customsel select {
+    display: none; /*hide original SELECT element: */
+  }
+
+  select {
+    
+    border: none;
+    font-size: 14px;
+    height: 30px;
+    padding: 5px;
+    width: 250px;
+ }
+ select:focus{ outline: none;}
+ 
+ .customsel::after{
+   content:"\025be";
+   display:table-cell;
+   padding-top:7px;
+   text-align:center;
+   width:30px;
+   height:30px;
+   background-color:#d9d9d9;
+   position:absolute;
+   top:0;
+   right:0px;	
+   pointer-events: none;
+ }
+  
+  
+  
+
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  }
+  
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .topnav ul:not(:first-child) {display: none;}
+    .topnav a.icon {
+      float: right;
+      display: block;
+    }
+  }
+
+  .topnav .icon {
+    display: none;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .topnav {position: relative;}
+    .topnav .icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .topnav a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+  } 
+
+
+  /* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */ 
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Add a background color and some padding around the form */
+.container {
+  border-radius: 5px;
+  margin: 20px;
+  padding: 20px;
+  align-content: center;
+  height: auto;
+
+}
+
+
+
+.hero2 {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  background-color: #fff;
+  padding: 20px 50px;
+  justify-content: center;
+}
+
+.hero2 .hero-content2 {
+  width: 1500px;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.hero2 h1 {
+  font-family: 'Rufina', sans-serif;
+  font-size: 50px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  margin-top: 0;
+  text-align: center;
+}
+
+.hero2 p {
+  font-family: 'Rubik', sans-serif;
+  margin-bottom: 50px;
+  
+}
+
+.left2 {
+  width: 600px;
+  align-self: center;
+}
+
+.rigth2 {
+  width: 600px;
+  align-self: center;
+  margin-left: 50px;
+}
+  
+  
+ 
 

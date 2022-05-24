@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Bienvenido
+{% endblock %}
+
+{% block content %}
+<div class="hero2">
+    <div class="hero-content2">
+        <div class="left2">
+            <div class="container">
+                <form action="action_page.php">
+                    <h1>Contactanos</h1>
+                  <label for="fname">Correo Electronico</label>
+                  <input type="text" id="fname" name="firstname" placeholder="Correo..">
+              
+                  <label for="lname">Tu Mensaje</label>
+                  <input type="text" id="lname" name="lastname" placeholder="Subject..">
+                  <label for="subject">Subject</label>
+                  <textarea id="subject" name="subject" placeholder="Escribe algo.." style="height:200px"></textarea>
+                  <div class="con">
+                    <a href="#install" class="btn-bar">Enviar</a>
+                  </div>
+              
+                </form>
+              </div>
+        </div>
+        <div class="rigth2">
+            <img src="{{ url_for('static', filename='pngegg.png') }}" width="600px">
+        </div>
+    </div>
+    
+</div>
+    {% include 'footer.html' %}
+{% endblock %}

@@ -1,1 +1,23 @@
-features 
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="sidebar">
+    <label for="">Caracteristicas</label>
+    <select class="customsel" style="width:200px;">
+      <option value="">v 1.2.1.0</option>
+      <option value="">v 1.2.1.0</option>
+      <option value="">v 1.2.1.0</option>
+      <option value="">v 1.2.1.0</option>
+    </select>
+    <a class="active" href="#Introduccion">1. Introduccion</a>
+    <a href="#news">2. Introduccion</a>
+    <a href="#contact">3. Introduccion</a>
+    <a href="#about">4. Introduccion</a>
+  </div>
+  
+  <div class="content-side">
+    <h1>Esto es una caracteristica</h1>
+    <p>Esto es el contenido de una caracteristica.</p>
+  </div>
+    {% include 'footer.html' %}
+{% endblock %}
