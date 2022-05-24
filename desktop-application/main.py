@@ -3,6 +3,8 @@ import tkinter.ttk as ttk
 import cv2
 import imutils
 from PIL import Image, ImageTk
+import pyvirtualcam
+import numpy as np
 from tkinter import messagebox
 class Aplication:
     def __init__(self):
@@ -42,11 +44,17 @@ class Aplication:
         def iniciar():
             global video
             ret,frame=video.read()
+
+            cam = pyvirtualcam.Camera(width=520, height=390, fps=30)
             if ret==True:
                 frame=imutils.resize(frame,width=520,height=330)
                 frame=cv2.cvtColor(frame,cv2.COLOR_BGR2RGB)
                 img=Image.fromarray(frame)
                 image=ImageTk.PhotoImage(image=img)
+
+                cam.send(frame)
+                cam.sleep_until_next_frame()
+
                 self.cameraInputImgLabel.configure(image=image)
                 self.cameraInputImgLabel.image=image
                 self.cameraInputImgLabel.after(10,iniciar)
