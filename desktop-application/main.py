@@ -45,15 +45,17 @@ class Aplication:
             global video
             ret,frame=video.read()
 
-            cam = pyvirtualcam.Camera(width=520, height=390, fps=30)
+            cam = pyvirtualcam.Camera(width=1280, height=960, fps=30,device="Unity Video Capture")
             if ret==True:
-                frame=imutils.resize(frame,width=520,height=330)
+                frame=imutils.resize(frame,width=1280,height=960)
                 frame=cv2.cvtColor(frame,cv2.COLOR_BGR2RGB)
-                img=Image.fromarray(frame)
-                image=ImageTk.PhotoImage(image=img)
 
                 cam.send(frame)
                 cam.sleep_until_next_frame()
+
+                frame=imutils.resize(frame,width=520,height=330)
+                img=Image.fromarray(frame)
+                image=ImageTk.PhotoImage(image=img)
 
                 self.cameraInputImgLabel.configure(image=image)
                 self.cameraInputImgLabel.image=image
