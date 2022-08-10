@@ -1,0 +1,9 @@
+speechRecognition
+pyttsx3
+mediapipe
+imutils
+pyvirtualcam
+pipwin
+pyAudio
+tensorflow
+sklearn
