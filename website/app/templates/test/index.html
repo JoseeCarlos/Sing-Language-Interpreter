@@ -7,11 +7,17 @@ Bienvenido
 {% block content %}
 <html>
     <head>
-      <title>Video Streaming Demonstration</title>
+      <title>Video Streaming Test</title>
     </head>
     <body>
       <h1>Video Streaming Demonstration</h1>
-      <img id="bg" src="">
+      <img id="bg" src="{{ url_for('sli_page.video_feed') }}">
+
+      <div>
+        <h1>Transcribe Audio </h1>
+        <p id="status">Connection status will go here</p>
+        <p id="transcript"></p>
+      </div>
     </body>
 </html>
     {% include 'footer.html' %}
